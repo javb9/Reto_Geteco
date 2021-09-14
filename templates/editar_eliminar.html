@@ -1,0 +1,86 @@
+{% extends 'plantilla.html' %}
+{% block titulo %} Editar o eliminar {% endblock %}
+{% block contenido %}
+<div class='container' style="margin-top: 40px;">
+    <form class="row justify-content-center" id="form_edit_or_delete_data">
+        <div class="col-lg-4">
+            <label class="form-label">ID</label>
+            <select class="form-select mb-1" aria-label="Default select example" id="id_atencion" value="id">
+                <option selected>ID</option>
+
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Empresa:</label>
+            <input required type="text" name="empresa_ed_del" id="empresa_ed_del" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Ciudad:</label>
+            <input type="text" class="form-control" name="ciudad_ed_del" id="ciudad_ed_del">
+        </div>
+        <div class="col-lg-6">
+            <br>
+            <label class="form-label">Asunto:</label>
+            <input required type="text" name="asunto_ed_del" id="asunto_ed_del" class="form-control">
+        </div>
+        <div class="col-lg-6">
+            <br>
+            <label class="form-label">Respuesta:</label>
+            <textarea required class="form-control" id="repuesta_ed_del" name="repuesta_ed_del" rows="3"></textarea>
+        </div>
+        <div class="col-lg-8">
+            <br><br>
+            <button class="btn btn-info col-lg-2" id="btn_refrescar" type="button">Refrescar</button>
+            <button class="btn btn-success col-lg-2" id="btn_editar" type="button" data-bs-toggle="modal"
+                data-bs-target="#modal_edit">Editar</button>
+            <div class="modal fade" id="modal_edit" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿ Esta seguro de editar este dato ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success" type="button"
+                                id="btn_editar_modal">Editar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-danger col-lg-2" id="btn_eliminar" type="button" data-bs-toggle="modal"
+                data-bs-target="#modal_delete">Eliminar</button>
+            <div class="modal fade" id="modal_delete" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿ Esta seguro que desea eliminar este dato ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" id="btn_eliminar_modal">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-secondary col-lg-2" id="btn_volver" type="button">Volver</button>
+        </div>
+    </form><br>
+    <div class="row justify-content-center col-lg-12">
+        <div id="alert" class="alert alert-primary col-lg-10" style="display:none ;">
+            <center>
+                <p id="alert_text"></p>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

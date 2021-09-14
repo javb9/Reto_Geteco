@@ -1,0 +1,50 @@
+{% extends 'plantilla.html' %}
+{% block titulo %} Registro nuevo {% endblock %}
+{% block contenido %}
+<div class='container' style="margin-top: 40px;">
+    <form class="row justify-content-center" onsubmit="send_data(); return false" id="form_send_data">
+        <div class="col-lg-4">
+            <label class="form-label">Fecha y Hora:</label><br>
+            <input type="datetime" name="fecha_hora" id="fecha_hora" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Empresa:</label>
+            <input required type="text" name="empresa" id="empresa" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Ciudad:</label>
+            <select class="form-select" aria-label="Default select example" id="ciudad" name="ciudad">
+                <option selected>Ciudad</option>
+                <option value="Cucuta">Cucuta</option>
+                <option value="Bogota">Bogota</option>
+                <option value="Medellin">Medellin</option>
+            </select>
+        </div>
+        <div class="col-lg-6">
+            <br>
+            <label class="form-label">Asunto:</label>
+            <input required type="text" name="asunto" id="asunto" class="form-control">
+        </div>
+        <div class="col-lg-6">
+            <br>
+            <label class="form-label">Respuesta:</label>
+            <textarea required class="form-control" id="repuesta" name="respuesta" rows="3"></textarea>
+        </div>
+        <div class="col-lg-6">
+            <br><br>
+            <button class="btn btn-success col-lg-3" id="btn_enviar" type="submit">Enviar</button>
+            <button class="btn btn-secondary col-lg-3" id="btn_volver" type="button">Volver</button>
+            <button class="btn btn-secondary col-lg-3" id="btn_restaurar" type="reset">Restaurar</button>
+        </div>
+    </form><br>
+    <div class="row justify-content-center col-lg-12">
+        <div id="alert" class="alert alert-primary col-lg-10" style="display:none ;">
+            <center>
+                <p id="alert_text"></p>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
